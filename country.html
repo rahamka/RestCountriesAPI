@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country</title>
+    <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon" />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:300,regular,500,600,700,800"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="country.css" />
+    <script src="script.js" defer></script>
+    <script src="country.js" defer></script>
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="header-content">
+        <h2 class="title">Where in the world?</h2>
+        <p><i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode</p>
+      </div>
+    </header>
+    <main>
+      <a href="http://127.0.0.1:3000/index.html" class="back-button"
+        ><ion-icon name="arrow-back-outline"></ion-icon>&nbsp; Back
+      </a>
+      <div class="country-details">
+        <img src="" alt="flag" />
+        <div class="details-text-container">
+          <h1 class="commonName"></h1>
+          <div class="details-text">
+            <p class="nativeName"><b>Native Name: </b><span></span></p>
+            <p class="population"><b>Population: </b><span></span></p>
+            <p class="region"><b>Region: </b><span></span></p>
+            <p class="subRegion"><b>Sub Region: </b><span></span></p>
+            <p class="capital"><b>Capital: </b><span></span></p>
+            <p class="top-level-domain">
+              <b>Top Level Domain: </b><span></span>
+            </p>
+            <p class="currencies"><b>Currencies: </b><span></span></p>
+            <p class="languages"><b>Languages: </b><span></span></p>
+          </div>
+          <div class="border-countries">
+            <p>
+              <b>Border Countries: &nbsp;&nbsp; </b>
+              <span></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
