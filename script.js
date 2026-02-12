@@ -8,7 +8,7 @@ fetch(
     countries.forEach((country) => {
       countryCard = document.createElement("a");
       countryCard.classList.add("country-card");
-      countryCard.href = `/country.html?name=${country.name.common}&Population=${country.population}&Region=${country.region}&Capital=${country.capital}`;
+      countryCard.href = `/https://github.com/rahamka/RestCountriesAPI/blob/main/country.html?name=${country.name.common}&Population=${country.population}&Region=${country.region}&Capital=${country.capital}`;
       countryCard.innerHTML = `
               <img src="${country.flags.svg}" alt="${country.name.common}" />
               <div class="card-text">
@@ -25,28 +25,3 @@ fetch(
       }
     });
   });
-
-/*
-countries info
-// Native Name:
-country.name.official
-
-// Sub region:
-country.subregion
-
-// capital
-country.capital
-
-// top level domain
-country.tld
-
-// currencies
-Object.entries(country.currencies)?[0]?.[0]
-
-// language
-country.language.cat
-
-// border countries
-country.borders
-
-*/
