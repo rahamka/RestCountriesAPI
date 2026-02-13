@@ -19,10 +19,11 @@ fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`, {
   .then((res) => res.json())
   .then((country) => country[0])
   .then((country) => {
-    let borderCondition = country.borders ? country.borders : "Not";
+    let borderCondition = country.borders
+      ? country.borders
+      : "Sorry Not Available";
     flagImage.src = country.flags.svg;
     countryNameH1.innerText = country.name.common;
-    console.log(country.name.official);
 
     // if condition for getting native name
     if (country.name.official) {
@@ -30,14 +31,17 @@ fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`, {
     } else {
       nativeName.innerText = country.name.common;
     }
-    // population.innerText = country.population;
-    // region.innerText = country.region;
-    // subRegion.innerText = country.subregion;
-    // capital.innerText = country.capital;
-    // tld.innerText = country.tld;
-    // currencies.innerText = Object.values(country?.currencies).symbol;
-    // languages.innerText = Object.values(country.languages);
-
+    population.innerText = country.population;
+    region.innerText = country.region;
+    subRegion.innerText = country.subregion;
+    capital.innerText = country.capital;
+    tld.innerText = country.tld;
+    languages.innerText = Object.values(country.languages);
+    if (Object.values(Object.values(country)[8])[0].symbol) {
+      currencies.innerText = Object.values(Object.values(country)[8])[0].symbol;
+    } else {
+      currencies.innerText = "Not Available";
+    }
     // if (borderCondition) {
     //   borderCountries.innerText = borderCondition;
     // } else {
