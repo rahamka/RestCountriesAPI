@@ -1,6 +1,8 @@
 let country = new URLSearchParams(window.location.search).get("name");
-let countryImg = document.querySelector(".country-details img");
-let countryName = document.querySelector(".details-text-container .commonName");
+let flagImage = document.querySelector(".country-details img");
+let countryNameH1 = document.querySelector(
+  ".details-text-container .commonName",
+);
 let nativeName = document.querySelector(".details-text .nativeName>span");
 let population = document.querySelector(".population>span");
 let region = document.querySelector(".region>span");
@@ -15,26 +17,34 @@ fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`, {
   method: "GET",
 })
   .then((res) => res.json())
+  .then((country) => country[0])
   .then((country) => {
-    let borderCondition = country[0].borders ? country[0].borders : "Not";
-    countryImg.src = country[0].flags.svg;
-    countryName.innerText = country[0].name.common;
-    nativeName.innerText = country[0].name.common;
-    population.innerText = country[0].population;
-    region.innerText = country[0].region;
-    subRegion.innerText = country[0].subregion;
-    capital.innerText = country[0].capital;
-    tld.innerText = country[0].tld;
-    currencies.innerText = Object.values(country[0]?.currencies)[0].symbol;
-    languages.innerText = Object.values(country[0].languages);
+    let borderCondition = country.borders ? country.borders : "Not";
+    flagImage.src = country.flags.svg;
+    countryNameH1.innerText = country.name.common;
+    console.log(country.name.official);
 
-    if (borderCondition) {
-      borderCountries.innerText = borderCondition;
+    // if condition for getting native name
+    if (country.name.official) {
+      nativeName.innerText = country.name.official;
     } else {
-      for (let i = 0; i < country[0].borders.length; i++) {
-        let a = document.createElement("a");
-        a.innerText = country[0].borders[i];
-        borderCountries.append(a);
-      }
+      nativeName.innerText = country.name.common;
     }
+    // population.innerText = country.population;
+    // region.innerText = country.region;
+    // subRegion.innerText = country.subregion;
+    // capital.innerText = country.capital;
+    // tld.innerText = country.tld;
+    // currencies.innerText = Object.values(country?.currencies).symbol;
+    // languages.innerText = Object.values(country.languages);
+
+    // if (borderCondition) {
+    //   borderCountries.innerText = borderCondition;
+    // } else {
+    //   for (let i = 0; i < country.borders.length; i++) {
+    //     let a = document.createElement("a");
+    //     a.innerText = country.borders[i];
+    //     borderCountries.append(a);
+    //   }
+    // }
   });
