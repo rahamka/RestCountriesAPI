@@ -93,6 +93,9 @@ a img {
 .search-filter-container {
   margin-top: 16px;
   margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search-container {
@@ -109,10 +112,26 @@ a img {
   border: none;
   outline: none;
   padding: 1rem 10px;
+  font-size: 1.2rem;
 }
 
 .search-container input::placeholder {
   color: #999;
+}
+
+#filter-by-region {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-5.6H18.6c-5%200-9.3%201.8-13.2%205.6-3.9%203.8-5.8%208.1-5.8%2013.2%200%205%201.9%209.2%205.8%2013l128.9%20127.8c3.9%203.8%208.1%205.7%2013.2%205.7s9.3-1.9%2013.2-5.7L287%2095.6c3.9-3.8%205.8-8%205.8-13%200-5.2-1.9-9.4-5.8-13.2z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px);
+  background-size: 12px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0px 8px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 16px 46px;
+  background-position: 150px;
 }
 
 @media (max-width: 800px) {
