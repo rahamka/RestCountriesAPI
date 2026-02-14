@@ -28,20 +28,17 @@ fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`, {
     } else {
       nativeName.innerText = country.name.common;
     }
-    population.innerText = country.population;
-    region.innerText = country.region;
-    subRegion.innerText = country.subregion;
-    capital.innerText = country.capital;
-    tld.innerText = country.tld;
+
+    if (country.population) population.innerText = country.population;
+    if (country.region) region.innerText = country.region;
+    if (country.tld) tld.innerText = country.tld;
+    if (country.capital) capital.innerText = country.capital;
+    if (country.subRegion) subRegion.innerText = country.subregion;
     if (country.languages) {
       languages.innerText = Object.values(country.languages).join(", ");
-    } else {
-      languages.innerText = "Sorry Not Available";
     }
     if (country.currencies) {
       currencies.innerText = Object.values(country.currencies)[0].name;
-    } else {
-      currencies.innerText = "Not Available";
     }
 
     if (country.borders) {
