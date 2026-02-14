@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.country-details-container {
+  margin-inline: 0 auto;
+  margin-top: 32px;
+}
+
 .back-button {
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
   padding: 8px 24px;
@@ -13,6 +18,8 @@
   justify-content: center;
   height: 35px;
   width: 120px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .country-details {
