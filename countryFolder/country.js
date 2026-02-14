@@ -42,10 +42,17 @@ fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`, {
     }
 
     if (country.borders) {
-      country.borders.forEach((val) => {
+      country.borders.forEach((border) => {
         let borderCountry = document.createElement("a");
-        borderCountry.innerText = val;
+        borderCountry.innerText = border;
         borderCountries.append(borderCountry);
+        fetch(`https://restcountries.com/v3.1/alpha/${border}`, {
+          method: "GET",
+        })
+          .then((res) => res.json())
+          .then(([countryData]) => {
+            borderCountry.href = `country.html?name=${countryData.name.common}`;
+          });
       });
     }
   });
