@@ -19,9 +19,6 @@ fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`, {
   .then((res) => res.json())
   .then((country) => country[0])
   .then((country) => {
-    let borderCondition = country.borders
-      ? country.borders
-      : "Sorry Not Available";
     flagImage.src = country.flags.svg;
     countryNameH1.innerText = country.name.common;
 
@@ -36,23 +33,22 @@ fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`, {
     subRegion.innerText = country.subregion;
     capital.innerText = country.capital;
     tld.innerText = country.tld;
-    try {
-      languages.innerText = Object.values(country.languages);
-    } catch (err) {
-      console.log(err);
+    if (country.languages) {
+      languages.innerText = Object.values(country.languages).join(", ");
+    } else {
+      languages.innerText = "Sorry Not Available";
     }
-    if (Object.values(Object.values(country)[8])[0].symbol) {
-      currencies.innerText = Object.values(Object.values(country)[8])[0].symbol;
+    if (country.currencies) {
+      currencies.innerText = Object.values(country.currencies)[0].name;
     } else {
       currencies.innerText = "Not Available";
     }
-    // if (borderCondition) {
-    //   borderCountries.innerText = borderCondition;
-    // } else {
-    //   for (let i = 0; i < country.borders.length; i++) {
-    //     let a = document.createElement("a");
-    //     a.innerText = country.borders[i];
-    //     borderCountries.append(a);
-    //   }
-    // }
+
+    if (country.borders) {
+      country.borders.forEach((val) => {
+        let borderCountry = document.createElement("a");
+        borderCountry.innerText = val;
+        borderCountries.append(borderCountry);
+      });
+    }
   });
