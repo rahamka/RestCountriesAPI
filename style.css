@@ -104,6 +104,10 @@ a img {
   border-radius: 8px;
   max-width: 400px;
   color: #555555;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-container input {
@@ -143,5 +147,23 @@ a img {
   }
   .header-content p {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  main {
+    padding: 5px;
+  }
+
+  #filter-by-region {
+    padding: 8px 25px 9px 6px;
+    background-position: 106px;
+  }
+  .search-container input {
+    font-size: 8px;
+  }
+
+  .search-container {
+    padding: 0px 0px 0px 10px;
   }
 }
