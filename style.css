@@ -35,13 +35,12 @@ a {
 }
 
 .countries-container {
-  margin-inline: auto;
   max-width: 1200px;
   margin-top: 1rem;
   display: flex;
   gap: 4rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .country-card {
@@ -89,6 +88,31 @@ a img {
   box-shadow: 0 0px 8px 0px rgba(0, 0, 0, 0.2);
   margin-inline: 4px;
   font-size: 14px;
+}
+
+.search-filter-container {
+  margin-top: 16px;
+  margin-bottom: 48px;
+}
+
+.search-container {
+  box-shadow: 0 0px 8px 0px rgba(0, 0, 0, 0.2);
+  padding: 3px 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  color: #555555;
+}
+
+.search-container input {
+  height: 100%;
+  width: fit-content;
+  border: none;
+  outline: none;
+  padding: 1rem 10px;
+}
+
+.search-container input::placeholder {
+  color: #999;
 }
 
 @media (max-width: 800px) {
