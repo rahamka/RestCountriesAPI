@@ -36,7 +36,11 @@ fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`, {
     subRegion.innerText = country.subregion;
     capital.innerText = country.capital;
     tld.innerText = country.tld;
-    languages.innerText = Object.values(country.languages);
+    try {
+      languages.innerText = Object.values(country.languages);
+    } catch (err) {
+      console.log(err);
+    }
     if (Object.values(Object.values(country)[8])[0].symbol) {
       currencies.innerText = Object.values(Object.values(country)[8])[0].symbol;
     } else {
