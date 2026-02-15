@@ -1,6 +1,8 @@
 const countryContainer = document.querySelector(".countries-container");
 const filterByRegion = document.getElementById("filter-by-region");
 const searchInput = document.querySelector(".search-container input");
+const themeChanger = document.querySelector(".theme-changer>span");
+const themeIcon = document.querySelector(".theme-changer>i");
 
 let allCountriesData;
 
@@ -39,9 +41,7 @@ function renderCountries(countries) {
       `;
     try {
       countryContainer.append(countryCard);
-    } catch (err) {
-      // console.log(err);
-    }
+    } catch (err) {}
   });
 }
 
