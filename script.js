@@ -1,7 +1,7 @@
 const countryContainer = document.querySelector(".countries-container");
 const filterByRegion = document.getElementById("filter-by-region");
 const searchInput = document.querySelector(".search-container input");
-const themeChanger = document.querySelector(".theme-changer>span");
+const themeSwitch = document.querySelector(".theme-changer>span");
 const themeIcon = document.querySelector(".theme-changer>i");
 
 let allCountriesData;
@@ -52,4 +52,23 @@ searchInput.addEventListener("input", (evt) => {
       .includes(evt.target.value.toLowerCase()),
   );
   renderCountries(value);
+});
+
+const enableDarkMode = () => {
+  document.body.classList.add("dark");
+  localStorage.setItem("darkMode", "active");
+};
+
+const disableDarkMode = () => {
+  document.body.classList.remove("dark");
+  localStorage.setItem("darkMode", null);
+};
+
+let darkMode = localStorage.getItem("darkMode");
+
+if (darkMode === "active") enableDarkMode();
+
+themeSwitch.addEventListener("click", () => {
+  darkMode = localStorage.getItem("darkMode");
+  darkMode !== "active" ? enableDarkMode() : disableDarkMode();
 });
