@@ -1,13 +1,16 @@
 const countryContainer = document.querySelector(".countries-container");
 const filterByRegion = document.getElementById("filter-by-region");
+const searchInput = document.querySelector(".search-container input");
 
-let countryCard;
+let allCountriesData;
+
 fetch(
   "https://restcountries.com/v3.1/all?fields=name,capital,tld,currencies,languages,borders,subregion,population,region,flags",
 )
   .then((data) => data.json())
   .then((countries) => {
     renderCountries(countries);
+    allCountriesData = countries;
   });
 
 filterByRegion.addEventListener("change", (evt) => {
@@ -22,7 +25,7 @@ filterByRegion.addEventListener("change", (evt) => {
 function renderCountries(countries) {
   countryContainer.innerHTML = "";
   countries.forEach((country) => {
-    countryCard = document.createElement("a");
+    let countryCard = document.createElement("a");
     countryCard.classList.add("country-card");
     countryCard.href = `/RestCountriesAPI/countryFolder/country.html?name=${country.name.common}`;
     countryCard.innerHTML = `
@@ -41,3 +44,15 @@ function renderCountries(countries) {
     }
   });
 }
+
+searchInput.addEventListener("keydown", (evt) => {
+  if (evt.key == "Enter") {
+    let value = allCountriesData.filter((countries) =>
+      countries.name.common
+        .toLowerCase()
+        .includes(evt.target.value.toLowerCase()),
+    );
+    console.log(value);
+    renderCountries(value);
+  }
+});
