@@ -68,6 +68,11 @@
   }
 }
 
+a img {
+  box-shadow: 0 0px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
 .country-details img {
   box-shadow: 0px 0px 8px 6px rgba(0, 0, 0, 0.3);
 }
