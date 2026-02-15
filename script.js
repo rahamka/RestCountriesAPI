@@ -45,14 +45,11 @@ function renderCountries(countries) {
   });
 }
 
-searchInput.addEventListener("keydown", (evt) => {
-  if (evt.key == "Enter") {
-    let value = allCountriesData.filter((countries) =>
-      countries.name.common
-        .toLowerCase()
-        .includes(evt.target.value.toLowerCase()),
-    );
-    console.log(value);
-    renderCountries(value);
-  }
+searchInput.addEventListener("input", (evt) => {
+  let value = allCountriesData.filter((countries) =>
+    countries.name.common
+      .toLowerCase()
+      .includes(evt.target.value.toLowerCase()),
+  );
+  renderCountries(value);
 });
