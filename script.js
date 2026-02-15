@@ -8,7 +8,7 @@ fetch(
     countries.forEach((country) => {
       countryCard = document.createElement("a");
       countryCard.classList.add("country-card");
-      countryCard.href = `/RestCountriesAPI/countryFolder/country.html?name=${country.name.common}`;
+      countryCard.href = `/countryFolder/country.html?name=${country.name.common}`;
       countryCard.innerHTML = `
               <img src="${country.flags.svg}" alt="${country.name.common}" />
               <div class="card-text">
