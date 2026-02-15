@@ -4,6 +4,7 @@ const searchInput = document.querySelector(".search-container input");
 const themeSwitch = document.querySelector(".theme-changer");
 let themeIcon = document.querySelector(".icon");
 let modeText = document.querySelector(".mode-text");
+let searchIcon = document.querySelector(".search-container>i");
 
 let allCountriesData;
 
@@ -60,6 +61,7 @@ const enableDarkMode = () => {
   localStorage.setItem("darkMode", "active");
   modeText.innerHTML = "Light Mode";
   themeIcon.innerHTML = `<i class="fa-regular fa-sun"></i>`;
+  searchIcon.classList.add("toggleIconColor");
 };
 
 const disableDarkMode = () => {
@@ -67,6 +69,7 @@ const disableDarkMode = () => {
   localStorage.setItem("darkMode", null);
   modeText.innerHTML = "Dark Mode";
   themeIcon.innerHTML = `<i class="fa-regular fa-moon"></i>`;
+  searchIcon.classList.remove("toggleIconColor");
 };
 
 let darkMode = localStorage.getItem("darkMode");
