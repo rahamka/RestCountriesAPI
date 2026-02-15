@@ -32,6 +32,10 @@ a {
 
 .title {
   font-weight: 700;
+  user-select: none;
+  box-shadow: 1px 0px 11px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 10px;
 }
 
 .countries-container {
