@@ -7,25 +7,7 @@ fetch(
 )
   .then((data) => data.json())
   .then((countries) => {
-    countries.forEach((country) => {
-      countryCard = document.createElement("a");
-      countryCard.classList.add("country-card");
-      countryCard.href = `/RestCountriesAPI/countryFolder/country.html?name=${country.name.common}`;
-      countryCard.innerHTML = `
-              <img src="${country.flags.svg}" alt="${country.name.common}" />
-              <div class="card-text">
-                  <h3 class="card-title">${country.name.common}</h3>
-                  <p><b>Population: </b>${country.population.toLocaleString("en-IN")}</p>
-                  <p><b>Region: </b>${country.region}</p>
-                  <p><b>Capital: </b>${country.capital}</p>
-              </div>
-      `;
-      try {
-        countryContainer.append(countryCard);
-      } catch (err) {
-        // console.log(err);
-      }
-    });
+    renderCountries(countries);
   });
 
 filterByRegion.addEventListener("change", (evt) => {
@@ -33,13 +15,17 @@ filterByRegion.addEventListener("change", (evt) => {
   fetch(`https://restcountries.com/v3.1/region/${filterByRegion.value}`)
     .then((data) => data.json())
     .then((countries) => {
-      countryContainer.innerHTML = "";
-      console.log("hello");
-      countries.forEach((country) => {
-        countryCard = document.createElement("a");
-        countryCard.classList.add("country-card");
-        countryCard.href = `/RestCountriesAPI/countryFolder/country.html?name=${country.name.common}`;
-        countryCard.innerHTML = `
+      renderCountries(countries);
+    });
+});
+
+function renderCountries(countries) {
+  countryContainer.innerHTML = "";
+  countries.forEach((country) => {
+    countryCard = document.createElement("a");
+    countryCard.classList.add("country-card");
+    countryCard.href = `/RestCountriesAPI/countryFolder/country.html?name=${country.name.common}`;
+    countryCard.innerHTML = `
               <img src="${country.flags.svg}" alt="${country.name.common}" />
               <div class="card-text">
                   <h3 class="card-title">${country.name.common}</h3>
@@ -48,11 +34,10 @@ filterByRegion.addEventListener("change", (evt) => {
                   <p><b>Capital: </b>${country.capital}</p>
               </div>
       `;
-        try {
-          countryContainer.append(countryCard);
-        } catch (err) {
-          // console.log(err);
-        }
-      });
-    });
-});
+    try {
+      countryContainer.append(countryCard);
+    } catch (err) {
+      // console.log(err);
+    }
+  });
+}
