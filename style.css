@@ -41,6 +41,7 @@ a {
   gap: 4rem;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-inline: auto;
 }
 
 .country-card {
@@ -96,7 +97,9 @@ a img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
   gap: 20px;
+  margin-inline: auto;
 }
 
 .search-container {
