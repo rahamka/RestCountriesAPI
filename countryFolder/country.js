@@ -56,3 +56,32 @@ fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`, {
       });
     }
   });
+
+// setting the dark mode
+
+let modeText_2 = document.querySelector(".mode-text");
+let modeIcon_2 = document.querySelector(".icon");
+let themeSwitch_2 = document.querySelector(".theme-changer");
+
+const addDarkMode = () => {
+  document.body.classList.add("dark");
+  localStorage.setItem("darkMode_2", "active");
+  modeIcon_2.innerHTML = `<i class="fa-regular fa-sun"></i>`;
+  modeText_2.innerHTML = "Light Mode";
+};
+
+const removeDarkMode = () => {
+  document.body.classList.remove("dark");
+  localStorage.setItem("darkMode_2", null);
+  modeText_2.innerHTML = "Dark Mode";
+  modeIcon_2.innerHTML = `<i class="fa-regular fa-moon"></i>`;
+};
+
+let isDark = localStorage.getItem("darkMode_2");
+
+if (isDark === "active") addDarkMode();
+
+themeSwitch_2.addEventListener("click", () => {
+  isDark = localStorage.getItem("darkMode_2");
+  isDark !== "active" ? addDarkMode() : removeDarkMode();
+});
